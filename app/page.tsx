@@ -2,10 +2,8 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import CTAButton from "../components/CTAButton"
-import {
-  CORE_PLATFORM_URL,
-  CORE_FREE_SIGNUP_URL
-} from "../lib/site-config"
+import SectionDivider from "../components/SectionDivider"
+import { CORE_PLATFORM_URL } from "../lib/site-config"
 
 export const metadata: Metadata = {
   title: "Home",
@@ -75,7 +73,7 @@ const coreIncludes = [
 export default function Home() {
   return (
     <div>
-      <section className="relative overflow-hidden border-b border-white/10 bg-slate-950">
+      <section className="relative overflow-hidden bg-slate-950">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.15),_transparent_55%)]" />
         <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-8 px-6 py-24 text-center sm:py-32">
           <p className="text-xs font-semibold uppercase tracking-[0.6em] text-slate-300">
@@ -102,8 +100,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="journey" className="relative overflow-hidden bg-slate-950 py-20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.2),_transparent_60%)]" />
+      <SectionDivider className="bg-gradient-to-b from-slate-950 to-slate-900" />
+
+      <section id="journey" className="relative overflow-hidden bg-slate-900 py-20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.18),_transparent_60%)]" />
         <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
           <div className="text-center">
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">
@@ -118,7 +118,7 @@ export default function Home() {
             {stageCards.map((card) => (
               <div
                 key={card.stage}
-                className="flex h-full flex-col gap-6 rounded-3xl border border-white/10 bg-slate-900/50 p-6 text-left shadow-xl shadow-slate-900/30"
+                className="flex h-full flex-col gap-6 rounded-3xl border border-white/10 bg-slate-950/60 p-6 text-left shadow-xl shadow-slate-900/30"
               >
                 <div className="space-y-2">
                   <p className="text-sm text-slate-300">{card.stage}</p>
@@ -146,6 +146,8 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      <SectionDivider className="bg-gradient-to-b from-slate-900 to-sky-700" />
 
       <section className="bg-gradient-to-b from-sky-700 via-sky-600 to-sky-500 py-20">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
@@ -178,6 +180,8 @@ export default function Home() {
         </div>
       </section>
 
+      <SectionDivider className="bg-gradient-to-b from-sky-500 to-slate-950" />
+
       <section className="bg-slate-950 py-20">
         <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-6 px-6 text-center">
           <h2 className="text-3xl font-semibold text-white sm:text-4xl">
@@ -193,6 +197,8 @@ export default function Home() {
           </CTAButton>
         </div>
       </section>
+
+      <SectionDivider className="bg-gradient-to-b from-slate-950 to-slate-900" />
 
       <section className="bg-slate-900">
         <div className="grid grid-cols-2 gap-0 md:grid-cols-5">
@@ -218,6 +224,8 @@ export default function Home() {
           </CTAButton>
         </div>
       </section>
+
+      <SectionDivider className="bg-gradient-to-b from-slate-900 to-slate-950" />
 
       <section className="bg-slate-950 py-20">
         <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-6 px-6 text-center">

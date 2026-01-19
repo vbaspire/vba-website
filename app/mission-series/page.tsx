@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import CTAButton from "../../components/CTAButton"
+import SectionDivider from "../../components/SectionDivider"
 
 export const metadata: Metadata = {
   title: "Mission Series",
@@ -81,7 +82,9 @@ export default function MissionSeriesPage() {
         </div>
       </section>
 
-      <section className="bg-white pb-24 pt-10 text-slate-900">
+      <SectionDivider className="bg-gradient-to-b from-white to-slate-100" />
+
+      <section className="bg-slate-100 pb-24 pt-10 text-slate-900">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6">
           <h2 className="text-3xl font-semibold">
             Each quarter, VBA launches a new campaign that reflects one of our
@@ -109,6 +112,8 @@ export default function MissionSeriesPage() {
           </div>
         </div>
       </section>
+
+      <SectionDivider className="bg-gradient-to-b from-slate-100 to-slate-950" />
 
       <section className="bg-slate-950 py-20 text-center text-white">
         <div className="mx-auto flex w-full max-w-4xl flex-col gap-6 px-6">

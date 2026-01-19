@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import { leadership } from "../../lib/leadership"
+import SectionDivider from "../../components/SectionDivider"
 
 export const metadata: Metadata = {
   title: "About",
@@ -39,6 +40,8 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <SectionDivider className="bg-gradient-to-b from-slate-950 to-white" />
+
       <section className="bg-white py-20 text-slate-900">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
           <div>
@@ -58,6 +61,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <SectionDivider className="bg-gradient-to-b from-white to-sky-600" />
 
       <section className="bg-gradient-to-b from-sky-600 via-sky-500 to-sky-400 py-20">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
