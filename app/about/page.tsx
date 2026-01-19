@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
-import Card from "../../components/Card"
-import Section from "../../components/Section"
+import Image from "next/image"
+import { leadership } from "../../lib/leadership"
 
 export const metadata: Metadata = {
   title: "About",
@@ -8,58 +8,92 @@ export const metadata: Metadata = {
     "Learn about Venture Beyond Aspirations and our mission to help founders build with clarity."
 }
 
+const coreValues = [
+  {
+    title: "Integrity",
+    description: "Honest, stage-aligned guidance that builds trust."
+  },
+  {
+    title: "Innovation",
+    description: "Systems that evolve as businesses grow."
+  },
+  {
+    title: "Empowerment",
+    description: "Confidence, structure, and ownership."
+  }
+]
+
 export default function AboutPage() {
   return (
     <div>
       <section className="border-b border-white/10 bg-slate-950 py-20">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6">
           <h1 className="text-4xl font-semibold text-white sm:text-5xl">
-            About VBA
+            Business With Intention. Growth With Direction.
           </h1>
           <p className="max-w-3xl text-lg text-slate-300">
-            Venture Beyond Aspirations exists to help founders build bold ideas
-            with structure, accountability, and purposeful momentum.
+            Entrepreneurship shouldn&apos;t feel scattered. VBA exists to replace
+            confusion with a clear, adaptable Core journey that evolves as your
+            business grows.
           </p>
         </div>
       </section>
 
-      <Section
-        eyebrow="Mission"
-        title="We help founders move from ambition to execution."
-        description="Our mission is to provide the clarity, tools, and accountability that founders need to build resilient ventures."
-      >
-        <div className="grid gap-6 md:grid-cols-3">
-          <Card
-            title="Clarity"
-            description="We help you define the mission, values, and goals that guide every decision."
-          />
-          <Card
-            title="Structure"
-            description="We provide the systems and steps that turn ideas into measurable progress."
-          />
-          <Card
-            title="Momentum"
-            description="We keep founders aligned with accountability, support, and consistent action."
-          />
+      <section className="bg-white py-20 text-slate-900">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
+          <div>
+            <h2 className="text-3xl font-semibold">Our Core Values</h2>
+            <p className="mt-2 text-sm text-slate-600">
+              The Principles That Guide How We Build, Coach, and Grow
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            {coreValues.map((value) => (
+              <div key={value.title} className="space-y-3">
+                <div className="h-14 w-14 rounded-2xl border border-slate-200 bg-slate-100" />
+                <h3 className="text-lg font-semibold">{value.title}</h3>
+                <p className="text-sm text-slate-600">{value.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </Section>
+      </section>
 
-      <Section
-        eyebrow="Values"
-        title="Founder-first values guide everything we do."
-        description="We believe in bold dreams, grounded execution, and community-driven accountability."
-      >
-        <div className="grid gap-6 md:grid-cols-2">
-          <Card
-            title="Purposeful growth"
-            description="Progress is measured in impact and sustainable momentum, not just speed."
-          />
-          <Card
-            title="Community accountability"
-            description="We build together, support one another, and grow through shared commitment."
-          />
+      <section className="bg-gradient-to-b from-sky-600 via-sky-500 to-sky-400 py-20">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
+          <div className="text-white">
+            <h2 className="text-3xl font-semibold">Meet Our Leadership</h2>
+            <p className="mt-2 max-w-2xl text-sm text-slate-100">
+              The VBA leadership team blends vision, operational excellence, and
+              creative strategy to keep founders moving forward with clarity.
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            {leadership.map((leader) => (
+              <div
+                key={leader.name}
+                className="overflow-hidden rounded-3xl border border-white/30 bg-white/20 shadow-lg shadow-sky-900/20 backdrop-blur"
+              >
+                <div className="relative h-64 w-full">
+                  <Image
+                    src={leader.imagePath}
+                    alt={leader.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="space-y-2 p-6 text-white">
+                  <h3 className="text-lg font-semibold">{leader.name}</h3>
+                  <p className="text-xs uppercase tracking-[0.25em] text-slate-100">
+                    {leader.title}
+                  </p>
+                  <p className="text-sm text-slate-100">{leader.bio}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-      </Section>
+      </section>
     </div>
   )
 }

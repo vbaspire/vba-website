@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
+import Image from "next/image"
+import Link from "next/link"
 import CTAButton from "../components/CTAButton"
-import Card from "../components/Card"
-import Section from "../components/Section"
 import {
-  CORE_FREE_SIGNUP_URL,
-  CORE_PLATFORM_URL
+  CORE_PLATFORM_URL,
+  CORE_FREE_SIGNUP_URL
 } from "../lib/site-config"
 
 export const metadata: Metadata = {
@@ -13,182 +13,227 @@ export const metadata: Metadata = {
     "Dream bold with VBA. Build clarity, launch confidently, and grow with Core."
 }
 
+const stageCards = [
+  {
+    stage: "Early Stage (0–2 Years)",
+    headline: "Build Your Foundation",
+    bullets: [
+      "Core foundation and setup",
+      "Branding and website basics",
+      "Business phone & systems",
+      "Step-by-step guidance"
+    ],
+    cta: { label: "I’m just getting started", href: "/core" }
+  },
+  {
+    stage: "Growth Stage (3–4 Years)",
+    headline: "Optimize & Build Momentum",
+    bullets: [
+      "Strategy check-ins",
+      "Campaign refinement",
+      "System optimization",
+      "Process and team support"
+    ],
+    cta: { label: "I’m building momentum", href: "/core" }
+  },
+  {
+    stage: "Established (5+ Years)",
+    headline: "Scale and Expand",
+    bullets: [
+      "Advanced marketing",
+      "HR and compliance support",
+      "Mission Series participation",
+      "Expansion strategy"
+    ],
+    cta: { label: "I’m ready to expand", href: "/core" }
+  }
+]
+
+const coreIncludes = [
+  {
+    title: "Structured Guidance",
+    description:
+      "Clarity on priorities, next steps, and decisions at every stage of your journey."
+  },
+  {
+    title: "Systems That Scale",
+    description:
+      "Business tools, workflows, and infrastructure that grow with you."
+  },
+  {
+    title: "Strategy & Accountability",
+    description:
+      "Ongoing check-ins and support to keep momentum strong and intentional."
+  },
+  {
+    title: "Tools & Resources",
+    description:
+      "Templates, planners, and resources designed for real-world execution."
+  }
+]
+
 export default function Home() {
   return (
     <div>
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.12),_transparent_55%)]" />
-        <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 py-20 sm:py-28">
-          <div className="max-w-3xl space-y-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-200/80">
-              Venture Beyond Aspirations
-            </p>
-            <h1 className="text-4xl font-semibold leading-tight text-white sm:text-6xl">
-              Dream Bold. Launch Smart. Grow Strong.
-            </h1>
-            <p className="text-lg text-slate-300 sm:text-xl">
-              VBA is a founder-first ecosystem built to help you define your
-              vision, build a disciplined plan, and stay accountable through the
-              Core platform.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <CTAButton href={CORE_PLATFORM_URL}>Start Your Core Journey</CTAButton>
-              <CTAButton href={CORE_FREE_SIGNUP_URL} variant="secondary">
-                Join Core Free
-              </CTAButton>
-            </div>
+      <section className="relative overflow-hidden border-b border-white/10 bg-slate-950">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.15),_transparent_55%)]" />
+        <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-8 px-6 py-24 text-center sm:py-32">
+          <p className="text-xs font-semibold uppercase tracking-[0.6em] text-slate-300">
+            Venture Beyond Aspirations
+          </p>
+          <h1 className="text-4xl font-semibold text-white sm:text-6xl">
+            Dream Bold. Launch Smart. Grow Strong.
+          </h1>
+          <p className="max-w-2xl text-lg text-slate-300">
+            Venture Beyond Aspirations empowers entrepreneurs to own their time,
+            ideas, and future through a structured journey anchored by Core.
+          </p>
+          <div className="flex flex-col items-center gap-4">
+            <CTAButton href={CORE_PLATFORM_URL} className="px-10 py-4 text-xs">
+              Start Your Core Journey
+            </CTAButton>
+            <Link href="#journey" className="text-sm text-slate-300 hover:text-white">
+              See how the journey works
+            </Link>
           </div>
-          <div className="grid gap-6 rounded-3xl border border-white/10 bg-slate-900/40 p-6 sm:grid-cols-3">
-            {[
-              {
-                title: "Clarify your mission",
-                description:
-                  "Define the purpose, impact, and milestones that guide every decision."
-              },
-              {
-                title: "Launch with structure",
-                description:
-                  "Move from ideas to action with a mapped roadmap and weekly focus."
-              },
-              {
-                title: "Grow with accountability",
-                description:
-                  "Stay aligned with progress tracking, community support, and expert guidance."
-              }
-            ].map((item) => (
-              <div key={item.title} className="space-y-3">
-                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                <p className="text-sm text-slate-300">{item.description}</p>
-              </div>
-            ))}
-          </div>
+          <p className="text-sm italic text-slate-400">
+            Built for entrepreneurs at every stage
+          </p>
         </div>
       </section>
 
-      <Section
-        eyebrow="Core Platform"
-        title="Everything founders need to move from vision to execution."
-        description="Core is the central hub that guides founders through clarity, planning, and momentum with a step-by-step journey."
-        id="core"
-      >
-        <div className="grid gap-8 lg:grid-cols-2">
-          <div className="space-y-4 rounded-3xl border border-white/10 bg-slate-900/40 p-6">
-            <h3 className="text-2xl font-semibold text-white">What Core is</h3>
-            <p className="text-slate-300">
-              Core is the operating system for founders who want direction,
-              momentum, and accountability. It organizes your strategy, goals,
-              and weekly focus in one place so you can build with confidence.
+      <section id="journey" className="relative overflow-hidden bg-slate-950 py-20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.2),_transparent_60%)]" />
+        <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
+          <div className="text-center">
+            <h2 className="text-3xl font-semibold text-white sm:text-4xl">
+              Your Business Has a Path
+            </h2>
+            <p className="mt-3 text-slate-300">
+              Every entrepreneur’s journey looks different. VBA meets you where
+              you are and helps you move forward.
             </p>
           </div>
-          <div className="space-y-4 rounded-3xl border border-white/10 bg-slate-900/40 p-6">
-            <h3 className="text-2xl font-semibold text-white">Who it&apos;s for</h3>
-            <p className="text-slate-300">
-              Entrepreneurs, creatives, and teams ready to transform ideas into
-              sustainable ventures. Whether you&apos;re at day one or scaling, Core
-              keeps you aligned.
-            </p>
+          <div className="grid gap-8 lg:grid-cols-3">
+            {stageCards.map((card) => (
+              <div
+                key={card.stage}
+                className="flex h-full flex-col gap-6 rounded-3xl border border-white/10 bg-slate-900/50 p-6 text-left shadow-xl shadow-slate-900/30"
+              >
+                <div className="space-y-2">
+                  <p className="text-sm text-slate-300">{card.stage}</p>
+                  <h3 className="text-xl font-semibold text-white">
+                    {card.headline}
+                  </h3>
+                  <div className="h-px w-full bg-white/10" />
+                </div>
+                <ul className="space-y-2 text-sm text-slate-300">
+                  {card.bullets.map((bullet) => (
+                    <li key={bullet} className="flex gap-2">
+                      <span className="text-emerald-300">•</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+                <CTAButton href={card.cta.href} variant="secondary" className="w-full text-xs">
+                  {card.cta.label}
+                </CTAButton>
+              </div>
+            ))}
           </div>
-        </div>
-        <div className="grid gap-6 pt-6 md:grid-cols-3">
-          {[
-            {
-              title: "Step 1: Define",
-              description:
-                "Clarify the mission, goals, and audience so every move is intentional."
-            },
-            {
-              title: "Step 2: Build",
-              description:
-                "Craft the roadmap, resources, and launch plan with guided prompts."
-            },
-            {
-              title: "Step 3: Grow",
-              description:
-                "Track progress, refine strategy, and stay accountable to the vision."
-            }
-          ].map((item) => (
-            <Card key={item.title} title={item.title} description={item.description} />
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Services"
-        title="A full ecosystem to support every stage."
-        description="VBA pairs Core with specialized services so founders can access the right support at the right time."
-      >
-        <div className="grid gap-6 md:grid-cols-3">
-          <Card
-            eyebrow="Core"
-            title="Core Platform"
-            description="Your centralized workspace for strategy, milestones, and accountability."
-          />
-          <Card
-            eyebrow="VBA Voice"
-            title="Founder Support"
-            description="On-demand voice guidance, accountability check-ins, and expert insights."
-          />
-          <Card
-            eyebrow="Kreadiv"
-            title="Creative Services"
-            description="Brand, design, and content support to bring your vision to life."
-          />
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Mission Series"
-        title="Mission-focused programming for bold builders."
-        description="The VBA Mission Series curates challenges, collaborations, and guided sprints that help founders unlock momentum."
-      >
-        <div className="flex flex-col gap-6 rounded-3xl border border-white/10 bg-slate-900/40 p-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-2xl space-y-3">
-            <h3 className="text-2xl font-semibold text-white">
-              Quarterly missions with tangible outcomes.
-            </h3>
-            <p className="text-slate-300">
-              Each mission delivers structured goals, live sessions, and curated
-              resources to keep your business moving forward.
-            </p>
-          </div>
-          <CTAButton href="/mission-series" variant="secondary">
-            Explore the Mission Series
-          </CTAButton>
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Stay Updated"
-        title="Updates arrive through email and inside Core."
-        description="We keep communication focused: updates, new missions, and resources are delivered via email and directly inside the Core platform."
-      >
-        <div className="flex flex-wrap items-center gap-4">
-          <CTAButton href={CORE_PLATFORM_URL}>Visit Core Platform</CTAButton>
-          <p className="text-sm text-slate-300">
-            Already in Core? Look for new resources in your dashboard.
+          <p className="text-center text-sm text-slate-400">
+            One Core membership. Different paths as your business grows.
           </p>
         </div>
-      </Section>
+      </section>
 
-      <section className="border-t border-white/10 bg-slate-900/40">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-16 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h2 className="text-3xl font-semibold text-white">
-              Ready to build with clarity?
+      <section className="bg-gradient-to-b from-sky-700 via-sky-600 to-sky-500 py-20">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6">
+          <div className="text-center text-white">
+            <h2 className="text-3xl font-semibold sm:text-4xl">
+              What Core Includes
             </h2>
-            <p className="mt-2 text-slate-300">
-              Join Core free or view membership options to unlock premium
-              guidance.
+            <p className="mt-3 text-sm text-slate-100">
+              One membership. Structured support that evolves as your business
+              grows.
             </p>
           </div>
-          <div className="flex flex-wrap gap-4">
-            <CTAButton href={CORE_FREE_SIGNUP_URL} variant="secondary">
-              Join Core Free
-            </CTAButton>
-            <CTAButton href="/pricing" variant="primary">
-              View Membership Options
-            </CTAButton>
+          <div className="grid gap-6 md:grid-cols-2">
+            {coreIncludes.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-3xl border border-white/30 bg-white/20 p-6 text-center text-white shadow-lg shadow-sky-900/20 backdrop-blur"
+              >
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <p className="mt-3 text-sm text-slate-100">
+                  {item.description}
+                </p>
+              </div>
+            ))}
           </div>
+          <p className="text-center text-sm text-slate-100">
+            Core adapts to your stage. The journey stays the same. The focus
+            evolves.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-slate-950 py-20">
+        <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-6 px-6 text-center">
+          <h2 className="text-3xl font-semibold text-white sm:text-4xl">
+            Business With Purpose
+          </h2>
+          <p className="text-slate-300">
+            Purpose-driven entrepreneurship is built into the Core journey. Each
+            quarter, VBA launches a Mission Series campaign that turns
+            entrepreneurship into community impact.
+          </p>
+          <CTAButton href="/mission-series" variant="secondary" className="px-8 text-xs">
+            Explore the Mission Series →
+          </CTAButton>
+        </div>
+      </section>
+
+      <section className="bg-slate-900">
+        <div className="grid grid-cols-2 gap-0 md:grid-cols-5">
+          {[1, 2, 3, 4, 5].map((index) => (
+            <div key={index} className="relative h-40 md:h-56">
+              <Image
+                src={`/veterans/vet-${index}.svg`}
+                alt="Veteran portrait"
+                fill
+                className="object-cover"
+              />
+            </div>
+          ))}
+        </div>
+        <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-4 px-6 py-12 text-center text-white">
+          <h2 className="text-3xl font-semibold">Built for Veterans Too</h2>
+          <p className="text-sm text-slate-200">
+            Veterans receive tailored Core support and exclusive pricing designed
+            for the transition from service to ownership.
+          </p>
+          <CTAButton href="/services" variant="secondary" className="px-8 text-xs">
+            Veteran startup support →
+          </CTAButton>
+        </div>
+      </section>
+
+      <section className="bg-slate-950 py-20">
+        <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-6 px-6 text-center">
+          <h2 className="text-4xl font-semibold text-white sm:text-5xl">
+            Start Your Core Journey
+          </h2>
+          <p className="text-slate-300">
+            Wherever you’re starting, Core gives you the structure, guidance, and
+            support to move forward with clarity and confidence.
+          </p>
+          <CTAButton href={CORE_PLATFORM_URL} className="px-10 py-4 text-xs">
+            Start Your Core Journey
+          </CTAButton>
+          <Link href="/pricing" className="text-sm text-slate-300 hover:text-white">
+            See pricing & membership details
+          </Link>
         </div>
       </section>
     </div>

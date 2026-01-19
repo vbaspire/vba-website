@@ -36,7 +36,7 @@ export const FOOTER_COLUMNS = {
     { label: "Join Core Free", href: CORE_FREE_SIGNUP_URL }
   ],
   Legal: [
-    { label: "Privacy", href: "/" },
-    { label: "Terms", href: "/" }
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" }
   ]
 }
